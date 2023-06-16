@@ -63,15 +63,25 @@ def index(request):
 # CODE FOR VID 10
 
 def analyze(request):
-    
+    #Get the text
     djtext = request.GET.get('text', 'default')
-    removepunc = request.GET.get('removepunc', 'default')
-    print(removepunc)
-    print(djtext)
-    
-    analyzed = djtext
-    
-    params = {'purpose' : 'Remove Punctuations', 'analyzed_text': analyzed}
-    
-    return render(request, 'analyze.html', params)
+
+    # Check checkbox values
+    removepunc = request.GET.get('removepunc', 'off')
+    fullcaps = request.GET.get('fullcaps', 'off')
+    newlineremover = request.GET.get('newlineremover', 'off')
+    extraspaceremover = request.GET.get('extraspaceremover', 'off')
+
+    #Check which checkbox is on
+    if removepunc == "on":
+        punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+        analyzed = ""
+        for char in djtext:
+            if char not in punctuations:
+                analyzed = analyzed + char
+        params = {'purpose':'Removed Punctuations', 'analyzed_text': analyzed}
+        return render(request, 'analyze.html', params)
+
+    else:
+        return HttpResponse("Error")
 

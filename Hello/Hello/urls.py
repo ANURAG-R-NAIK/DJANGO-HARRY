@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-
 # CODE FOR VIDEO 6 AND 7
 
 # urlpatterns = [
@@ -27,14 +26,16 @@ from . import views
 #     path("facebook", views.facebook, name = "facebook"),
 #     path("wikipedia", views.wikipedia, name = "wikipedia") 
 # ]
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", views.index, name = "index"),  
-    path("analyze", views.analyze, name = "analyze"),  
+    path('', views.index, name='index'),
+    path('analyze', views.analyze, name='analyze')
+
+
+]
+
 #     path("capitalize", views.capitalize, name = "capitalize"), 
 #     path("newlineremove", views.newlineremove, name = "newlineremove"), 
 #     path("spaceremove", views.spaceremove, name = "spaceremove"), 
 #     path("charcount", views.charcount, name = "charcount"), 
- ]
  
