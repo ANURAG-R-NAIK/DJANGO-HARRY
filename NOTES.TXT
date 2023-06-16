@@ -1,0 +1,35 @@
+1. wsgi.py stands for webs erver gateway interface
+
+VIDEO 6
+
+2. to import data from another file we create a file, and to access it we give "from . import ---" in urls.py file
+we make a index function in our views.py and import that using path("",views.index, name = "index").
+index also takes an argument request inside the function call.
+
+3. when we need to return a string value we need to import httpresponse so we give (from django.http import Httpresponse)
+and while returning we givr=e return httpresponse("string value")
+
+4. in path function path("", views.about, name = about) in this "---" gives the end point of the url of the page  and redirects
+accorindly. if we give a function about with endpoint about the it redirects us to that page
+
+VIDE0 8
+5. if we need to trace back to the home page we jus tneed to give "/" in the href tag
+<a href = "/"> BACK </a>
+
+VIDEO 9
+6. for importing html files from templates first we need to go to setting.py and in 'DIRS' we need to enter 'templates'
+then go to our views page
+then give "from django.shortcuts import render"
+and inside the function "return render(request, "--name of the html file")
+we can also pass dictionaries in the render function by giving a dictionary in .py file and then accessing in the  html file
+
+VIDEO 10
+7. we have to provide a text area for tping the data. then provide a button and type of button which will redirect 
+to the respective website
+to get the button to the next line adda a <br> tag at the end of the line above it
+print(request.GET.get('text', 'default'))
+gives the text entered in the terminal and if not entered any then takes the default value
+
+VIDEO 11
+8. making functionality for removepunctuations in this we took a variable purpose as removed punctuations
+took params as a dictionary 
